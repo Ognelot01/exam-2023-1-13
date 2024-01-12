@@ -7,7 +7,7 @@ let selectedGuide;
 let searchedGuides;
 
 function getURL(path) {
-    let url = new URL(`http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/${path}`);
+    let url = new URL(`https://edu.std-900.ist.mospolytech.ru/api/${path}`);
     url.searchParams.set("api_key", "cc61f6bd-bea8-4864-8f08-ae599a08dc29");
     return url;
 }
