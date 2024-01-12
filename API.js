@@ -329,10 +329,13 @@ function formUpd(modal) {
     let morningPrice = hour >= 9 || hour < 12 ? 400 : 0;
     let eveningPrice = hour >= 20 || hour < 23 ? 1000 : 0;
     let visitorsPrice = count < 5 ? 0 : count < 10 ? 1000 : 1500;
-    let option1Price = option1 ? 0.5 : 0;
-    let option2Price = option2 ? count * 1000 : 0;
+    
+   
     btn.classList.remove('disabled');
-    let price = selectedGuide.pricePerHour * duration * (option1Price + isThisDayOff) + morningPrice + eveningPrice + visitorsPrice + option2Price;
+    let price = selectedGuide.pricePerHour * duration * isThisDayOff + morningPrice + eveningPrice + visitorsPrice;
+    let option1Price = option1 ? price * 0.5 : 0;
+    let option2Price = option2 ? count * 1000 : 0;
+    price += option2Price + option1Price;
     price = Math.round(price);
     modal.target.querySelector('#price').innerHTML = price;
     btn.onclick = async () => {
